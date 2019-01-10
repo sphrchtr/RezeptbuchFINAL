@@ -1,5 +1,5 @@
 <?php
-    include_once 'includes/connect.php'
+    include_once 'includes/connect.php' //Sorgt dafür, dass eine Datei nur einmal eingebunden wird.
 ?>
     <!DOCTYPE html>
 
