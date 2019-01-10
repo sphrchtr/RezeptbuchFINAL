@@ -18,12 +18,12 @@ th, td {
 </style>
 
 <?php
-$connect = mysqli_connect("localhost", "root", "", "rezeptbuch"); // Verbingung zur Datenbank mit Benutzerdaten ( Idee von PHP-einfach.de)
-$output = '';
-if(isset($_POST["query"]))
-{
-	$search = mysqli_real_escape_string($connect, $_POST["query"]);
-	$query = "
+$connect = mysqli_connect("localhost", "root", "", "rezeptbuch");			//Teil des Externen Ajax such Scriptes
+$output = '';										//gibt Daten aus der datenbank aus
+if(isset($_POST["query"]))								//abfrage via php aus sql datenbank fragt nach id,name kategorien, quelle
+{											//sowie zeit und schwierigkeitsgrad geordent nach id
+	$search = mysqli_real_escape_string($connect, $_POST["query"]);			//und ist das resultat größer 0 gibt es in einer Tabelle die Daten der datenbank aus
+	$query = "									//und wenn kleiner null dann Keine einträge gefunden
 	SELECT * FROM rezepte
 	WHERE id LIKE '%".$search."%'
 	OR namerecipe LIKE '%".$search."%'
@@ -65,9 +65,9 @@ if(mysqli_num_rows($result) > 0)
 				<td>'.$row["time"].'</td>
 				<td>'.$row["difficulty"].'</td>
 				<td>'.$row["source"].'</td>
-                <td><a href="includes/view.php?id='.$row["ID"].'"><img class="icon" src="images/view.png"></a></td>
-                <td><a href="includes/edit.php?id='. $row["ID"].'"><img class="icon" src="images/edit.png"></a></td>
-                <td><a href="includes/delete.php?id='. $row["ID"].'"><img class="icon" src="images/delete.png"></a></td>
+                		<td><a href="includes/view.php?id='.$row["ID"].'"><img class="icon" src="images/view.png"></a></td>
+               	 		<td><a href="includes/edit.php?id='. $row["ID"].'"><img class="icon" src="images/edit.png"></a></td>
+                		<td><a href="includes/delete.php?id='. $row["ID"].'"><img class="icon" src="images/delete.png"></a></td>
 			</tr>
 		';
 	}
@@ -75,6 +75,6 @@ if(mysqli_num_rows($result) > 0)
 }
 else
 {
-	echo 'Data Not Found';
+	echo 'Keine Eintrage gefunden';
 }
 ?>
