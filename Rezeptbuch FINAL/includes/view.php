@@ -78,7 +78,7 @@
         <!--- row col-7 col-s-9-->
         <div class="row col-8 col-s-12" id="printablediv">
         <?php
-                $pdo = new PDO('mysql:host=localhost;dbname=rezeptbuch', 'root', '');                                                                           // Neue Verbindung mit der Datenbank
+                $pdo = new PDO('mysql:host=localhost;dbname=rezeptbuch', 'root', '');                                                                           // Neue Verbindung mit der Datenbank ( Idee von PHP-einfach.de)
                 $id = $_GET['id'];                                                                                                                              // Funktion Get ID aus der Adress Zeile 
 
                 echo "<table>";                                                                                                                                 // Neue Tablle
