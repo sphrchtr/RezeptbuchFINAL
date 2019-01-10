@@ -1,5 +1,5 @@
 <?php
-    include_once 'includes/connect.php'
+    include_once 'includes/connect.php' 
 ?>
     <!DOCTYPE html>
 
@@ -7,27 +7,28 @@
 
     <head>
 
-        <meta charset="utf-8" />
+        <meta charset="utf-8" /> <!-- Kodierung für Unicode-Zeichen -->
         <meta author="Gruppe_8" />
         <title>Gruppe_8</title>
         <link rel="stylesheet" type="text/css" href="style/style.css" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script language="javascript" type="text/javascript">
+        <script language="javascript" type="text/javascript"> // Script um bestimmtes div zu drucken
         function printDiv(divID) {
-            //Get the HTML of div
+            // Holt die HTML von div
             var divElements = document.getElementById(divID).innerHTML;
-            //Get the HTML of whole page
+            
+            // Holt die HTML der ganzen Seite
             var oldPage = document.body.innerHTML;
 
-            //Reset the page's HTML with div's HTML only
+            // Ersetzt die ganze HTML Seite mit der div
             document.body.innerHTML = 
               "<html><head><title></title></head><body>" + 
               divElements + "</body>";
 
-            //Print Page
+            // Seit drucken
             window.print();
 
-            //Restore orignal HTML
+            // Original HTML wiederhestellen
             document.body.innerHTML = oldPage;
 
           
@@ -38,7 +39,7 @@
     <body>
 
         <div class="header">
-            <a href="./index.php"><img src="images/rezeptbuch_logo-01.svg"></a>
+            <a href="./index.php"><img src="images/rezeptbuch_logo-01.svg"></a> 
         </div>
         <div class="row">
             <div class=" side_sb col-12 col-s-9">
@@ -46,7 +47,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-2 col-s-3 menu">
+            <div class="col-2 col-s-3 menu"> 
                 <ul>
                     <li onclick="location.href='./Rezeptform.php'">
                         <a>Rezepte hinzufügen</a>
@@ -72,9 +73,9 @@
                     $password = "";
                     $dbname = "rezeptbuch";
 
-                    // Create connection
+                    // Verbingung wird hergestellt
                     $conn = new mysqli($servername, $username, $password, $dbname);
-                    // Check connection
+                    // Verbindung wird überprüft
                     if ($conn->connect_error) {
                         die("Connection failed: " . $conn->connect_error);
                     }    
@@ -83,7 +84,7 @@
                     $result = $conn->query($sql);
 
                     if ($result->num_rows > 0) {
-                        // output data of each row
+                        // Augabe der Daten pro Zeile
                         while($row = $result->fetch_assoc()) {
                             echo "<br>- ". $row['Name']. "<br>";
                         }
@@ -100,14 +101,14 @@
                 <div class="aside">
                     <h2>!HINWEIS!</h2>
                     <p>Hier können sie alle Dinge auf Ihrer Einkaufsliste sehen</p>
-                    <p>Klicken sie auf Drucken um die Einkaufsliste auszudrucken</p>
+                    <p>Klicken Sie auf "Drucken" um die Einkaufsliste auszudrucken</p>
                 </div>
             </div>
             <div class="row col-2 col-s-12">
                 
             </div>
             <div class="row col-8 col-s-12">
-                <button onclick="javascript:printDiv('printablediv')"><img class='icon' src='images/print.png'></button>
+                <button onclick="javascript:printDiv('printablediv')"><img class='icon' src='images/print.png'></button> <!-- Druck Button -->
             </div>
         </div>
 
