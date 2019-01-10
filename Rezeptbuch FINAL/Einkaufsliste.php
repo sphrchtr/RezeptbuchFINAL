@@ -1,5 +1,5 @@
 <?php
-    include_once 'includes/connect.php' 
+    include_once 'includes/connect.php'                                                                             // Aufruf der Connect.php
 ?>
     <!DOCTYPE html>
 
@@ -68,7 +68,7 @@
             <div class="row col-8 col-s-12 content_b" id="printablediv">
                 <h2>Auf der Einkaufsliste stehen folgende Dinge:</h2>
                 <?php
-                    $servername = "localhost";
+                    $servername = "localhost";                                  //Festlegen von neuen Variablen ( Idee von W3-Schools (PHP Sektion))
                     $username = "root";
                     $password = "";
                     $dbname = "rezeptbuch";
@@ -80,21 +80,21 @@
                         die("Connection failed: " . $conn->connect_error);
                     }    
 
-                    $sql = "SELECT ID, Name FROM Einkaufsliste";
-                    $result = $conn->query($sql);
+                    $sql = "SELECT ID, Name FROM Einkaufsliste";                    // SQL Befehl wird festgelegt
+                    $result = $conn->query($sql);                                   // Query wird mit SQL Befehl ausgeführt
 
-                    if ($result->num_rows > 0) {
+                    if ($result->num_rows > 0) {                                    
                         // Augabe der Daten pro Zeile
-                        while($row = $result->fetch_assoc()) {
+                        while($row = $result->fetch_assoc()) {                      // Aufzählung aller Daten in der Einkaufslisten Tabelle
                             echo "<br>- ". $row['Name']. "<br>";
                         }
                         echo "<br>    ";
                     } 
                     else {
-                        echo "0 Ergebnisse";
+                        echo "0 Ergebnisse";                                        // Falls kein Eintrag vorhandnen ist
                     }
 
-                    $conn->close();
+                    $conn->close();                                                 // Connection close
                 ?>
             </div>   
             <div class="row col-2 col-s-8">
