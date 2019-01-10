@@ -1,5 +1,5 @@
-<?php
-$link = mysqli_connect("localhost", "root", "", "rezeptbuch"); // Verbingung zur Datenbank mit Benutzerdaten
+<?php 
+$link = mysqli_connect("localhost", "root", "", "rezeptbuch"); // Verbingung zur Datenbank mit Benutzerdaten ( Idee von PHP-einfach.de)
  
 // Verbindung wird geprüft mit Fehlermeldung
 if($link === false){
