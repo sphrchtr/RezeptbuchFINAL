@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="de">
-
+<!-- Head gibt charset, autor, titel und Verweise auf Scripts und styles an -->
 <head>
 
     <meta charset="utf-8" />
@@ -15,9 +15,9 @@
 
 </head>
 
-<body>
+<body><!-- Body beinhaltet diversen code -->
 
-    <div class="header">
+    <div class="header"><!-- header beinhaltet logo -->
         <a href="index.php"><img src="images/rezeptbuch_logo-01.svg"></a>
     </div>
       <div class="row_sb">
@@ -25,20 +25,21 @@
 
         </div>
       </div>
-    <div class="row">
+    <div class="row"><!-- Class Row teilt div in 12 gleichgroße senkrechte Rasterabschnitte -->
 
-        <div class="col-2 col-s-3 menu">
+        <div class="col-2 col-s-3 menu"><!-- Class Col-x Col-s-x ordnet in x teile des Rasters ein -->
+
             <ul>
-                <li onclick="location.href='./Rezeptform.php'">
+                <li onclick="location.href='./Rezeptform.php'"><!-- Verweist auf Rezeptform.php -->
                     <a>Rezepte hinzufügen</a>
                 </li>
-                <li onclick="location.href='./Alle_Rezepte.php'">
+                <li onclick="location.href='./Alle_Rezepte.php'"><!-- Verweist auf Alle_Rezepte.php.php -->
                     <a>Alle Rezepte</a>
                 </li>
-                <li onclick="location.href='./Einkaufsliste.php'">
+                <li onclick="location.href='./Einkaufsliste.php'"><!-- Verweist auf Einkaufsliste.php -->
                     <a>Einkaufsliste</a>
                 </li>
-                <li onclick="location.href='./Impressum.php'">
+                <li onclick="location.href='./Impressum.php'"><!-- Verweist auf Impressum.php -->
                     <a>Impressum</a>
                 </li>
             </ul>
@@ -78,34 +79,3 @@
 </body>
 
 </html>
-
-
-<script>
-$(document).ready(function(){
-	load_data();
-	function load_data(query)
-	{
-		$.ajax({
-			url:"fetch.php",
-			method:"post",
-			data:{query:query},
-			success:function(data)
-			{
-				$('#result').html(data);
-			}
-		});
-	}
-
-	$('#search_text').keyup(function(){
-		var search = $(this).val();
-		if(search != '')
-		{
-			load_data(search);
-		}
-		else
-		{
-			load_data();
-		}
-	});
-});
-</script>
