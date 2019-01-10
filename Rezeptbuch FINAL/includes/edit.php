@@ -59,14 +59,14 @@
         <!--- row col-7 col-s-9-->
         <div class="row col-8 col-s-9">
     <?php
-            $pdo = new PDO('mysql:host=localhost;dbname=rezeptbuch', 'root', '');
+            $pdo = new PDO('mysql:host=localhost;dbname=rezeptbuch', 'root', '');                                                                                               // Neue Verbindung mit dem Server ( Idee von PHP- Einfach.de )
 
-            $id = $_GET['id'];
+            $id = $_GET['id'];                                                                                                                                                  // Id aus Adresszeile geholt
             
-            $sql = "SELECT * FROM rezepte WHERE id =" .$id ."";
-                foreach ($pdo->query($sql) as $row) {
-                echo "<form action='update.php?id=" . $row['ID'] . "' method ='post'>";
-                echo  "<div class='col-3 col-s-12'>Rezept Name :<br><input type='text' name='namerecipe' id='namerecipe' value= '" . $row['namerecipe'] ."'><br>";
+            $sql = "SELECT * FROM rezepte WHERE id =" .$id ."";                                                                                                                 // SQL Befehl festgelgt
+                foreach ($pdo->query($sql) as $row) {                                                                                                                           // Query wird gestartet mit Link und SQL um daten einzutragen
+                echo "<form action='update.php?id=" . $row['ID'] . "' method ='post'>";                                                                                         // Neue Form
+                echo  "<div class='col-3 col-s-12'>Rezept Name :<br><input type='text' name='namerecipe' id='namerecipe' value= '" . $row['namerecipe'] ."'><br>";              // Input mit den vorhanden Werten aus der Tabelle komplimentieren
                 echo  "Zutat 1 : <br><input type='text' name='ingredient1' id='ingredient1' value = '" . $row['ingredient1'] ."'><br>";
                 echo  "Zutat 2 : <br><input type='text' name='ingredient2' id='ingredient2' value = '" . $row['ingredient2'] ."'><br>";
                 echo  "Zutat 3 : <br><input type='text' name='ingredient3' id='ingredient3' value = '" . $row['ingredient3'] ."'><br>";
@@ -86,8 +86,8 @@
                 echo  "Anzahl : <br><input type='text' name='amount' id='amount' value = '" . $row['amount'] ."'><br>";
                 echo  "Quelle : <br><input type='text' name='source' id='source' value = '" . $row['source'] ."'><br></div>";
                 }
-            echo  "<button type='submit'><img class='icon' src='../images/save.png'></button>";
-            echo  "</form>";
+            echo  "<button type='submit'><img class='icon' src='../images/save.png'></button>";                                                                                  // Button zur Speicherung
+            echo  "</form>";                                                                                                                                                     // Form ende   
     ?>
             </div>
         <div class="row col-2 col-s-9">
