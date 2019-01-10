@@ -18,7 +18,7 @@ th, td {
 </style>
 
 <?php
-$connect = mysqli_connect("localhost", "root", "", "rezeptbuch");
+$connect = mysqli_connect("localhost", "root", "", "rezeptbuch"); // Verbingung zur Datenbank mit Benutzerdaten ( Idee von PHP-einfach.de)
 $output = '';
 if(isset($_POST["query"]))
 {
