@@ -80,8 +80,8 @@
 </html>
 
 <script>
-$(document).ready(function(){
-	load_data();
+$(document).ready(function(){			//verändertes ajax script zum Abrufen der Datensatzdatenbank mit Ajax.
+	load_data();				
 	function load_data(query)
 	{
 		$.ajax({
@@ -95,13 +95,13 @@ $(document).ready(function(){
 		});
 	}
 
-	$('#search_text').keyup(function(){
+	$('#search_text').keyup(function(){	//mit keyupfunction abfragen was eingetippt wird
 		var search = $(this).val();
-		if(search != '')
+		if(search != '')		//wenn suche ungleich leer abfrage der suche
 		{
 			load_data(search);
 		}
-		else
+		else				//dann load_data()
 		{
 			load_data();
 		}
