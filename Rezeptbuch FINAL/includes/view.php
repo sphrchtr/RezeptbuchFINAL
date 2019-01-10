@@ -82,7 +82,7 @@
                 $id = $_GET['id'];                                                                                                                              // Funktion Get ID aus der Adress Zeile 
 
                 echo "<table>";                                                                                                                                 // Neue Tablle
-                $sql = "SELECT * FROM rezepte WHERE id =".$id ."";                                                                                              // SQL Besfehl festlegen
+                $sql = "SELECT * FROM rezepte WHERE id =".$id ."";                                                                                              // SQL Befehl zur anzeigen alle Rezepte aus der Rezept Tablle festlegen
                     foreach ($pdo->query($sql) as $row) {                                                                                                       // Neue Query geht durch die Tablle durch und zieht sich die einzelnen Werte in ein Array ein
                     echo  "<tr><th>Rezept Name : </th><th>" . $row['namerecipe'] ."</th></tr>";                                                                 // Anzeige des rezept Namens
                     echo  "<tr><th>Zutat 1 : </th><th><a href='./ek.php?ingredient=". $row['ingredient1'] ."&id=$id'>" . $row['ingredient1'] ."</th></tr>";     // Anzeige der Zutaten + Mitgabe der Id und der Zutat 
