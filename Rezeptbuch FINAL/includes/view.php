@@ -78,14 +78,14 @@
         <!--- row col-7 col-s-9-->
         <div class="row col-8 col-s-12" id="printablediv">
         <?php
-                $pdo = new PDO('mysql:host=localhost;dbname=rezeptbuch', 'root', '');
-                $id = $_GET['id'];
+                $pdo = new PDO('mysql:host=localhost;dbname=rezeptbuch', 'root', '');                                                                           // Neue Verbindung mit der Datenbank
+                $id = $_GET['id'];                                                                                                                              // Funktion Get ID aus der Adress Zeile 
 
-                echo "<table>";
-                $sql = "SELECT * FROM rezepte WHERE id =".$id ."";
-                    foreach ($pdo->query($sql) as $row) {
-                    echo  "<tr><th>Rezept Name : </th><th>" . $row['namerecipe'] ."</th></tr>";
-                    echo  "<tr><th>Zutat 1 : </th><th><a href='./ek.php?ingredient=". $row['ingredient1'] ."&id=$id'>" . $row['ingredient1'] ."</th></tr>";
+                echo "<table>";                                                                                                                                 // Neue Tablle
+                $sql = "SELECT * FROM rezepte WHERE id =".$id ."";                                                                                              // SQL Besfehl festlegen
+                    foreach ($pdo->query($sql) as $row) {                                                                                                       // Neue Query geht durch die Tablle durch und zieht sich die einzelnen Werte in ein Array ein
+                    echo  "<tr><th>Rezept Name : </th><th>" . $row['namerecipe'] ."</th></tr>";                                                                 // Anzeige des rezept Namens
+                    echo  "<tr><th>Zutat 1 : </th><th><a href='./ek.php?ingredient=". $row['ingredient1'] ."&id=$id'>" . $row['ingredient1'] ."</th></tr>";     // Anzeige der Zutaten + Mitgabe der Id und der Zutat 
                     echo  "<tr><th>Zutat 2 : </th><th><a href='./ek.php?ingredient=". $row['ingredient2'] ."&id=$id'>" . $row['ingredient2'] ."</th></tr>";
                     echo  "<tr><th>Zutat 3 : </th><th><a href='./ek.php?ingredient=". $row['ingredient3'] ."&id=$id'>" . $row['ingredient3'] ."</th></tr>";
                     echo  "<tr><th>Zutat 4 : </th><th><a href='./ek.php?ingredient=". $row['ingredient4'] ."&id=$id'>" . $row['ingredient4'] ."</th></tr>";
@@ -95,15 +95,15 @@
                     echo  "<tr><th>Zutat 8 : </th><th><a href='./ek.php?ingredient=". $row['ingredient8'] ."&id=$id'>" . $row['ingredient8'] ."</th></tr>";
                     echo  "<tr><th>Zutat 9 : </th><th><a href='./ek.php?ingredient=". $row['ingredient9'] ."&id=$id'>" . $row['ingredient9'] ."</th></tr>";
                     echo  "<tr><th>Zutat 10 : </th><th><a href='./ek.php?ingredient=". $row['ingredient10'] ."&id=$id'>" . $row['ingredient10'] ."</th></tr>";    
-                    echo  "<tr><th>Zubereitung : </th><th>" . $row['preparation'] ."</th></tr>";
-                    echo  "<tr><th>Schwierigkeitsgrad : </th><th>" . $row['difficulty'] ."</th></tr>"; 
-                    echo  "<tr><th>Zeit : </th><th>" . $row['time'] ."</th></tr>";
-                    echo  "<tr><th>Anzahl : </th><th>" . $row['amount'] ."</th></tr>";
+                    echo  "<tr><th>Zubereitung : </th><th>" . $row['preparation'] ."</th></tr>";                                                                // Anzeige der Zubereitung
+                    echo  "<tr><th>Schwierigkeitsgrad : </th><th>" . $row['difficulty'] ."</th></tr>";                                                          // Anzeige der Schwierigkeitsgrad
+                    echo  "<tr><th>Zeit : </th><th>" . $row['time'] ."</th></tr>";                                                                              // Anzeige der Zeit
+                    echo  "<tr><th>Anzahl : </th><th>" . $row['amount'] ."</th></tr>";                                                                          // Anzeige der Menge
                     }
-                    echo "</table>";
+                    echo "</table>";                                                                                                                            // Tabelle zu Ende
             echo "<br>";
             echo "<br>";
-            echo "<a href='.././Alle_Rezepte.php'><img class='icon' src='../images/back.png'></a>";    
+            echo "<a href='.././Alle_Rezepte.php'><img class='icon' src='../images/back.png'></a>";                                                             // Zurück Button zur Alle_Rezepte.php    
         ?>
         </div>
             
@@ -117,7 +117,7 @@
                 
         </div>
         <div class="row col-4 col-s-12">
-                <button onclick="javascript:printDiv('printablediv')"><img class='icon' src='../images/print.png'></button>
+                <button onclick="javascript:printDiv('printablediv')"><img class='icon' src='../images/print.png'></button>                                     <!-- Druck Button -->        
             </div>
     </div>
 
