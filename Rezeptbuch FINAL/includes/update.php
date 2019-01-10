@@ -7,7 +7,7 @@ if($link === false){                                                            
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
  
-// Escape user inputs for security
+
 $namerecipe = mysqli_real_escape_string($link, $_REQUEST['namerecipe']);                   // Holt sich alle Werte aus der Tabelle und trägt sie in die Variablen ein
 $preparation = mysqli_real_escape_string($link, $_REQUEST['preparation']);
 $difficulty = mysqli_real_escape_string($link, $_REQUEST['difficulty']);
