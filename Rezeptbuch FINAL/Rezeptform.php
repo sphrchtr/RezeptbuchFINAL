@@ -1,5 +1,5 @@
 <?php
-    include_once 'includes/connect.php'
+    include_once 'includes/connect.php' //Sorgt dafür, dass eine Datei nur einmal eingebunden wird.
 ?>
     <!DOCTYPE html>
 
@@ -17,7 +17,7 @@
 
     <body>
 
-        <div class="header">
+        <div class="header"> 
             <a href="./index.php"><img src="images/rezeptbuch_logo-01.svg"></a>
         </div>
         <div class="row">
@@ -115,7 +115,7 @@
             </div>
         </div>
         <?php
-            if(!empty($_GET['message'])) {
+            if(!empty($_GET['message'])) { 
                 $message = $_GET['message'];
                 echo "<p>Dein Rezept wurde hinzugefügt</p>";
             }
